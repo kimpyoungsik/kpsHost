@@ -4,13 +4,14 @@ services:
     image:
       nginx:latest
     ports:
-      - "9100:80"
+      - "80:80"
     volumes:
-      - .:/code
-      - ./nginx/nginx:/etc/nginx.conf.d
+      - code:/code
+      - ./front-nginx/html:/usr/share/nginx/html
+      - nginx:/etc/nginx.conf.d      
     depends_on:
-      - web
-  web:
+      - front-nginx
+  front-nginx:
     build:
       context: .
       dockerfile: Dockerfile
