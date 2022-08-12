@@ -20,3 +20,27 @@ services:
       - .:/code
     expose:
       - "8000"
+
+#       version: "3"
+# services:
+#   backend-django:
+#     container_name: backend-django
+#     image: frontend:1.0.0 # 이미지, 태그
+#     ports:
+#         - "8000:8000"
+#     build: ./backend-django
+#     volumes: 
+#         - ./letterproject:/srv/letter_web
+#         - ./log/uwsgi:/log
+#   frontend-nginx:
+#     container_name: frontend-nginx
+#     image: frontend-nginx:1.0.0
+#     ports:
+#         - "80:80"
+#     build: ./frontend-nginx
+#     volumes:
+#         - ./frontend-nginx:/srv/letter_web
+#         - ./log/nginx:/log
+#         - ./.static_root:/static
+#     depends_on : 
+#         - backend-django
